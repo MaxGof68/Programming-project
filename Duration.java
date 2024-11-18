@@ -1,30 +1,27 @@
-Public Class duration {
+class duration {
     int hours;
     int minutes;
     int seconds;
 
-Public duration(int hours, int minutes, int seconds) {
+public duration(int hours, int minutes, int seconds) {
     this.hours = hours;
     this.minutes = minutes;
     this.seconds = seconds;
     
 }
-Public getSeconds() {
+public int getSeconds() {
     return seconds;
 }
-Public getMinutes() {
+public int getMinutes() {
     return minutes;
 }
-Public getHours() {
+public int getHours() {
     return hours;
 }
-Public toString() {
+public String toString() {
     return (hours + ":" + minutes + ":" + seconds);
 }
-Public static void Duration(String[] args){
-    seconds = 13;
-    minutes = 04;
-    hours = 00;
-    toString()
+public static void Duration(String[] args){
+    
 }
 } 
