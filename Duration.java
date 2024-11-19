@@ -25,7 +25,17 @@ public class Duration {
         }
     }
 
-    // Getters
+
+    // Static method to parse a Duration from a string
+    public static Duration fromString(String durationString) {
+        String[] parts = durationString.split(":"); // Split into hours, minutes, and seconds
+        int h = Integer.parseInt(parts[0]); // Parse hours
+        int m = Integer.parseInt(parts[1]); // Parse minutes
+        int s = Integer.parseInt(parts[2]); // Parse seconds
+        return new Duration(h, m, s); // Create and return a Duration object
+    }
+
+    // Getters - retrive value
     public int getSeconds() {
         return seconds;
     }
@@ -38,7 +48,7 @@ public class Duration {
         return hours;
     }
 
-    // Setters
+    // Setters - set value
     public void setHours(int hours) {
         this.hours = hours;
     }
