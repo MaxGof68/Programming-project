@@ -69,6 +69,7 @@ public class Duration {
     }
 
     // Overriding toString for display
+    // How and when to use @Override implemented from stackoverflow - https://stackoverflow.com/questions/28929579/overriding-an-extending-class/28929624#28929624
     @Override
     public String toString() {
         return String.format("%02d:%02d:%02d", hours, minutes, seconds);
