@@ -1,6 +1,8 @@
 //Duration will be used to manage and display duration times - track length, album length
 
+//duration class, declare variables
 public class Duration {
+
     private int hours;
     private int minutes;
     private int seconds;
@@ -25,39 +27,42 @@ public class Duration {
         }
     }
 
-
     // Static method to split a Duration from a string
     public static Duration fromString(String durationString) {
         String[] parts = durationString.split(":"); // Split into hours, minutes, and seconds
-        int h = Integer.parseInt(parts[0]); 
-        int m = Integer.parseInt(parts[1]); 
-        int s = Integer.parseInt(parts[2]); 
+        int h = Integer.parseInt(parts[0]);
+        int m = Integer.parseInt(parts[1]);
+        int s = Integer.parseInt(parts[2]);
         return new Duration(h, m, s); // Create and return a Duration object, h m and s to represent the time values
     }
 
-    // Getters - retrive value
+    // Get seconds
     public int getSeconds() {
         return seconds;
     }
 
+    // get minutes
     public int getMinutes() {
         return minutes;
     }
 
+    //get hours
     public int getHours() {
         return hours;
     }
 
-    // Setters - set value
+    // Set hours
     public void setHours(int hours) {
         this.hours = hours;
     }
 
+    //set minutes
     public void setMinutes(int minutes) {
         this.minutes = minutes;
         normalise(); // Re-check normalisation
     }
 
+    //set seconds
     public void setSeconds(int seconds) {
         this.seconds = seconds;
         normalise(); // Re-check normalisation
