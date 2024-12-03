@@ -1,6 +1,7 @@
 //Albums class is used to store and represent contents of the album
 
 public class Albums {
+
     private String artist; // Artist of the album
     private String title; // Title of the album
     private int year; // Release year of the album
@@ -16,23 +17,27 @@ public class Albums {
         this.trackCount = 0; // Start with 0 tracks
     }
 
-    // Getters
+    // Get artist
     public String getArtist() {
         return artist;
     }
 
+    //get title
     public String getTitle() {
         return title;
     }
 
+    //get year
     public int getYear() {
         return year;
     }
 
+    //get track count
     public int getTrackCount() {
         return trackCount;
     }
 
+    //get tracks
     public Track[] getTracks() {
         return tracks;
     }
@@ -43,7 +48,7 @@ public class Albums {
             tracks[trackCount] = track; // Add track to the array
             trackCount++; // Increment track count
             return true; // Track added
-        } else{
+        } else {
             return false; //Track not added
         }
     }
@@ -51,20 +56,21 @@ public class Albums {
     // Get the total duration of the album
     public Duration getTotalDuration() {
         int totalSeconds = 0;
-        for (int i = 0; i < trackCount; i++) {
-            totalSeconds += tracks[i].getDuration().toSeconds();
+        for (int i = 0; i < trackCount; i++) { //loop through all tracks
+            totalSeconds += tracks[i].getDuration().toSeconds(); //add the seconds of all tracks together
         }
         return new Duration(0, 0, totalSeconds);
     }
 
     // Get the longest track in the album
     public Track getLongestTrack() {
-        if (trackCount == 0) return null; // No tracks in the album
-
+        if (trackCount == 0) {
+            return null; // No tracks in the album
+        }
         Track longest = tracks[0];
-        for (int i = 1; i < trackCount; i++) {
-            if (Duration.compare(tracks[i].getDuration(), longest.getDuration()) > 0) {
-                longest = tracks[i];
+        for (int i = 1; i < trackCount; i++) { //loop through all tracks
+            if (Duration.compare(tracks[i].getDuration(), longest.getDuration()) > 0) { //compare track lengths
+                longest = tracks[i]; // declare longest track
             }
         }
         return longest;
@@ -73,13 +79,13 @@ public class Albums {
     // Overriding toString for display
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
-        result.append("Artist: ").append(artist).append("\n");
-        result.append("Title: ").append(title).append("\n");
-        result.append("Year: ").append(year).append("\n");
-        result.append("Tracks:\n");
-        for (int i = 0; i < trackCount; i++) {
-            result.append("  ").append(i + 1).append(". ").append(tracks[i]).append("\n");
+        StringBuilder result = new StringBuilder(); // create new result object
+        result.append("Artist: ").append(artist).append("\n"); //append artist into result
+        result.append("Title: ").append(title).append("\n"); //append title into result
+        result.append("Year: ").append(year).append("\n"); // append year into result
+        result.append("Tracks:\n"); //append tracks into result
+        for (int i = 0; i < trackCount; i++) { //loop through all tracks
+            result.append("  ").append(i + 1).append(". ").append(tracks[i]).append("\n"); // number the tracks
         }
         return result.toString();
     }
