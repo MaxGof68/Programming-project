@@ -49,7 +49,7 @@ public class Track {
     // Testing the Track class
     public static void main(String[] args) {
         String line = "0:03:22 - Foxy Lady";
-        Track track = Track.fromString(line); // Parse from text
+        Track track = Track.fromString(line); // Split from text
         System.out.println("Parsed Track: " + track); // Output: "00:03:22 - Foxy Lady"
 
         // Display individual attributes
