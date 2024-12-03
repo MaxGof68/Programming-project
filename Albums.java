@@ -1,17 +1,19 @@
+//Albums class is used to store and represent contents of the album
+
 public class Albums {
-    private String artist;          // Artist of the album
-    private String title;           // Title of the album
-    private int year;               // Release year of the album
-    private Track[] tracks;         // Array to store tracks
-    private int trackCount;         // Keeps track of the number of tracks added
+    private String artist; // Artist of the album
+    private String title; // Title of the album
+    private int year; // Release year of the album
+    private Track[] tracks; // Array to store tracks
+    private int trackCount; // Keeps track of the number of tracks added
 
     // Constructor
     public Albums(String artist, String title, int year, int maxTracks) {
         this.artist = artist;
         this.title = title;
         this.year = year;
-        this.tracks = new Track[maxTracks]; // Initialize the array with a fixed size
-        this.trackCount = 0;                // Start with no tracks
+        this.tracks = new Track[maxTracks]; // Set a fixed size
+        this.trackCount = 0; // Start with 0 tracks
     }
 
     // Getters
@@ -39,11 +41,10 @@ public class Albums {
     public boolean addTrack(Track track) {
         if (trackCount < tracks.length) {
             tracks[trackCount] = track; // Add track to the array
-            trackCount++;               // Increment track count
-            return true;                // Track successfully added
-        } else {
-            System.out.println("Track list is full. Cannot add more tracks.");
-            return false;               // Track list is full
+            trackCount++; // Increment track count
+            return true; // Track added
+        } else{
+            return false; //Track not added
         }
     }
 

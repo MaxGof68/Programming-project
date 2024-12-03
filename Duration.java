@@ -10,11 +10,11 @@ public class Duration {
         this.hours = hours;
         this.minutes = minutes;
         this.seconds = seconds;
-        normalize(); // Ensure the values are normalized on creation
+        normalise(); // Ensure the values are normalised on creation
     }
 
-    // Normalize the time values
-    private void normalize() {
+    // Normalise time values, ensure values like minutes and seconds are valid
+    private void normalise() {
         if (seconds >= 60) {
             minutes += seconds / 60;
             seconds = seconds % 60;
@@ -32,7 +32,7 @@ public class Duration {
         int h = Integer.parseInt(parts[0]); 
         int m = Integer.parseInt(parts[1]); 
         int s = Integer.parseInt(parts[2]); 
-        return new Duration(h, m, s); // Create and return a Duration object
+        return new Duration(h, m, s); // Create and return a Duration object, h m and s to represent the time values
     }
 
     // Getters - retrive value
@@ -55,12 +55,12 @@ public class Duration {
 
     public void setMinutes(int minutes) {
         this.minutes = minutes;
-        normalize(); // Re-check normalization
+        normalise(); // Re-check normalisation
     }
 
     public void setSeconds(int seconds) {
         this.seconds = seconds;
-        normalize(); // Re-check normalization
+        normalise(); // Re-check normalisation
     }
 
     // Converts the duration to total seconds, useful for calculating total track time
@@ -82,16 +82,16 @@ public class Duration {
 
     // Testing the class
     public static void main(String[] args) {
-        // Create a duration with unnormalized values
+        // Create a duration with unnormalised values
         Duration duration1 = new Duration(0, 59, 75); // 75 seconds = 1 minute + 15 seconds
         System.out.println("Normalized Duration 1: " + duration1); // Output: 01:00:15
 
-        // Add seconds and normalize
+        // Add seconds and normalise
         duration1.setSeconds(130); // 130 seconds = 2 minutes + 10 seconds
         System.out.println("After Adding Seconds: " + duration1); // Output: 01:02:10
 
         // Create another duration
-        Duration duration2 = new Duration(1, 2, 10); // Already normalized
+        Duration duration2 = new Duration(1, 2, 10); // Already normalised
         System.out.println("Duration 2: " + duration2);
 
         // Compare durations using the static compare method

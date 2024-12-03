@@ -2,8 +2,8 @@
 //Provide a readable presentation of the track
 
 public class Track {
-    private String title;       // Track name
-    private Duration duration;  // Duration of the track
+    private String title; // Track name
+    private Duration duration; // Duration of the track
 
     // Constructor
     public Track(String title, Duration duration) {
@@ -40,7 +40,7 @@ public class Track {
     // Overriding toString for display
     @Override
     public String toString() {
-        return duration + " - " + title; // Example: "00:03:22 - Foxy Lady"
+        return duration + " - " + title; 
     }
 
     // Testing the Track class
