@@ -91,21 +91,21 @@ public class Albums {
     }
 
     // Testing the Album class
-    public static void main(String[] args) {
-        Albums album = new Albums("The Jimi Hendrix Experience", "Are You Experienced?", 1967, 5);
+    // public static void main(String[] args) {
+    //     Albums album = new Albums("The Jimi Hendrix Experience", "Are You Experienced?", 1967, 5);
 
-        // Add tracks
-        album.addTrack(new Track("Foxy Lady", new Duration(0, 3, 22)));
-        album.addTrack(new Track("Manic Depression", new Duration(0, 3, 46)));
-        album.addTrack(new Track("Red House", new Duration(0, 3, 53)));
+    //     // Add tracks
+    //     album.addTrack(new Track("Foxy Lady", new Duration(0, 3, 22)));
+    //     album.addTrack(new Track("Manic Depression", new Duration(0, 3, 46)));
+    //     album.addTrack(new Track("Red House", new Duration(0, 3, 53)));
 
-        // Display album
-        System.out.println(album);
+    //     // Display album
+    //     System.out.println(album);
 
-        // Total duration
-        System.out.println("Total Duration: " + album.getTotalDuration());
+    //     // Total duration
+    //     System.out.println("Total Duration: " + album.getTotalDuration());
 
-        // Longest track
-        System.out.println("Longest Track: " + album.getLongestTrack());
-    }
+    //     // Longest track
+    //     System.out.println("Longest Track: " + album.getLongestTrack());
+    // }
 }

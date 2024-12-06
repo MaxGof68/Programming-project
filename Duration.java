@@ -86,7 +86,7 @@ public class Duration {
     }
 
     // Testing the class
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         // Create a duration with unnormalised values
         Duration duration1 = new Duration(0, 59, 75); // 75 seconds = 1 minute + 15 seconds
         System.out.println("Normalized Duration 1: " + duration1); // Output: 01:00:15
@@ -112,4 +112,6 @@ public class Duration {
         // Display total seconds of a duration
         System.out.println("Total seconds of Duration 1: " + duration1.toSeconds());
     }
+    */
 }
+
