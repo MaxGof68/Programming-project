@@ -1,6 +1,6 @@
 //Albums class is used to store and represent contents of the album
 
-public class Albums {
+public class Album {
 
     private String artist;
     private String title;
@@ -9,7 +9,7 @@ public class Albums {
     private int trackCount;
 
     // Constructor
-    public Albums(String artist, String title, int year, int maxTracks) {
+    public Album(String artist, String title, int year, int maxTracks) {
         this.artist = artist;
         this.title = title;
         this.year = year;

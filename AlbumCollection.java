@@ -1,15 +1,15 @@
 public class AlbumCollection {
-    private Albums[] albums; //Albums array
+    private Album[] albums; //Albums array
     private int albumCount;
 
     //Constructor
     public AlbumCollection(int maxAlbums) {
-        this.albums = new Albums[maxAlbums]; //Initialize array with a fixed size
+        this.albums = new Album[maxAlbums]; //Initialize array with a fixed size
         this.albumCount = 0;
     }
 
     //Add album to collection
-    public boolean addAlbum(Albums album) {
+    public boolean addAlbum(Album album) {
         if (albumCount < albums.length) {
             albums[albumCount] = album;
             albumCount++;
@@ -25,7 +25,7 @@ public class AlbumCollection {
         return albumCount;
     }
 
-    public Albums[] getAlbums() {
+    public Album[] getAlbums() {
         return albums;
     }
 
@@ -57,7 +57,7 @@ public class AlbumCollection {
                     (albums[j].getArtist().equals(albums[j + 1].getArtist()) &&
                      albums[j].getYear() > albums[j + 1].getYear())) {
                     // Swap albums
-                    Albums temp = albums[j];
+                    Album temp = albums[j];
                     albums[j] = albums[j + 1];
                     albums[j + 1] = temp;
                 }

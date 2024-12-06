@@ -17,7 +17,7 @@ public class AlbumDatabase {
         Scanner fileScanner = null; //Declare scanner
         try {
             fileScanner = new Scanner(new File(filename)); //Initialise scanner
-            Albums currentAlbum = null;
+            Album currentAlbum = null;
     
             while (fileScanner.hasNextLine()) {
                 String line = fileScanner.nextLine().trim();
@@ -37,7 +37,7 @@ public class AlbumDatabase {
                     String title = titleAndYear[0].trim();
                     int year = Integer.parseInt(titleAndYear[1].replace(")", "").trim());
     
-                    currentAlbum = new Albums(artist, title, year, 50); //Max 50 tracks per album
+                    currentAlbum = new Album(artist, title, year, 50); //Max 50 tracks per album
                 } else if (currentAlbum != null) {
                     //Split and add a track to the current album
                     try {
@@ -66,7 +66,7 @@ public class AlbumDatabase {
         int totalSeconds = 0;
     
         for (int i = 0; i < collection.getAlbumCount(); i++) {
-            Albums album = collection.getAlbums()[i];
+            Album album = collection.getAlbums()[i];
             if (album.getArtist().equalsIgnoreCase("Kraftwerk")) {
                 totalSeconds += album.getTotalDuration().toSeconds();
             }
@@ -77,10 +77,10 @@ public class AlbumDatabase {
     }
     
     private void displayShortestTitle() {
-        Albums shortestTitleAlbum = null;
+        Album shortestTitleAlbum = null;
     
         for (int i = 0; i < collection.getAlbumCount(); i++) {
-            Albums currentAlbum = collection.getAlbums()[i];
+            Album currentAlbum = collection.getAlbums()[i];
             if (shortestTitleAlbum == null || currentAlbum.getTitle().length() < shortestTitleAlbum.getTitle().length()) {
                 shortestTitleAlbum = currentAlbum;
             }
