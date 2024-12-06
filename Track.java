@@ -4,7 +4,7 @@
 public class Track {
 
     private String title; // Track name
-    private Duration duration; // Duration of the track
+    private Duration duration;
 
     // Constructor
     public Track(String title, Duration duration) {
@@ -12,22 +12,19 @@ public class Track {
         this.duration = duration;
     }
 
-    // Get title 
+    //Getters
     public String getTitle() {
         return title;
     }
 
-    // get duration
     public Duration getDuration() {
         return duration;
     }
 
-    // Set title
     public void setTitle(String title) {
         this.title = title;
     }
 
-    //set duration
     public void setDuration(Duration duration) {
         this.duration = duration;
     }
@@ -46,14 +43,5 @@ public class Track {
         return duration + " - " + title;
     }
 
-    // Testing the Track class
-    // public static void main(String[] args) {
-    //     String line = "0:03:22 - Foxy Lady";
-    //     Track track = Track.fromString(line); // Split from text
-    //     System.out.println("Parsed Track: " + track); // Output: "00:03:22 - Foxy Lady"
 
-    //     // Display individual attributes
-    //     System.out.println("Track Title: " + track.getTitle());
-    //     System.out.println("Track Duration: " + track.getDuration());
-    // }
 }

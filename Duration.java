@@ -1,5 +1,4 @@
 //Duration will be used to manage and display duration times - track length, album length
-
 //duration class, declare variables
 public class Duration {
 
@@ -12,10 +11,10 @@ public class Duration {
         this.hours = hours;
         this.minutes = minutes;
         this.seconds = seconds;
-        normalise(); // Ensure the values are normalised on creation
+        normalise();
     }
 
-    // Normalise time values, ensure values like minutes and seconds are valid
+    // Normalise time values
     private void normalise() {
         if (seconds >= 60) {
             minutes += seconds / 60;
@@ -27,48 +26,44 @@ public class Duration {
         }
     }
 
-    // Static method to split a Duration from a string
+    // split Duration from string
     public static Duration fromString(String durationString) {
         String[] parts = durationString.split(":"); // Split into hours, minutes, and seconds
         int hour = Integer.parseInt(parts[0]);
         int minute = Integer.parseInt(parts[1]);
         int second = Integer.parseInt(parts[2]);
-        return new Duration(hour, minute, second); //return a Duration object with its hours, minutes, seconds.
+        return new Duration(hour, minute, second);
     }
 
-    // Get seconds
+    //Getters
     public int getSeconds() {
         return seconds;
     }
 
-    // get minutes
     public int getMinutes() {
         return minutes;
     }
 
-    //get hours
     public int getHours() {
         return hours;
     }
 
-    // Set hours
+    //Setters
     public void setHours(int hours) {
         this.hours = hours;
     }
 
-    //set minutes
     public void setMinutes(int minutes) {
         this.minutes = minutes;
-        normalise(); // Re-check normalisation
+        normalise();
     }
 
-    //set seconds
     public void setSeconds(int seconds) {
         this.seconds = seconds;
-        normalise(); // Re-check normalisation
+        normalise();
     }
 
-    // Converts the duration to total seconds, useful for calculating total track time
+    //Convert duration to total seconds
     public int toSeconds() {
         return hours * 3600 + minutes * 60 + seconds;
     }
@@ -80,37 +75,9 @@ public class Duration {
         return String.format("%02d:%02d:%02d", hours, minutes, seconds);
     }
 
-    // Static method to compare two Duration objects, useful when finding longest and shortest track
+    //Compare durations
     public static int compare(Duration d1, Duration d2) {
         return Integer.compare(d1.toSeconds(), d2.toSeconds());
     }
 
-    // Testing the class
-    /*public static void main(String[] args) {
-        // Create a duration with unnormalised values
-        Duration duration1 = new Duration(0, 59, 75); // 75 seconds = 1 minute + 15 seconds
-        System.out.println("Normalized Duration 1: " + duration1); // Output: 01:00:15
-
-        // Add seconds and normalise
-        duration1.setSeconds(130); // 130 seconds = 2 minutes + 10 seconds
-        System.out.println("After Adding Seconds: " + duration1); // Output: 01:02:10
-
-        // Create another duration
-        Duration duration2 = new Duration(1, 2, 10); // Already normalised
-        System.out.println("Duration 2: " + duration2);
-
-        // Compare durations using the static compare method
-        int comparisonResult = Duration.compare(duration1, duration2);
-        if (comparisonResult < 0) {
-            System.out.println("Duration 1 is shorter than Duration 2");
-        } else if (comparisonResult > 0) {
-            System.out.println("Duration 1 is longer than Duration 2");
-        } else {
-            System.out.println("Duration 1 and Duration 2 are equal");
-        }
-
-        // Display total seconds of a duration
-        System.out.println("Total seconds of Duration 1: " + duration1.toSeconds());
-    }
-     */
 }

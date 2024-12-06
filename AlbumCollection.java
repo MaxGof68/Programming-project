@@ -1,36 +1,35 @@
 public class AlbumCollection {
-    private Albums[] albums;      // Array to store albums
-    private int albumCount;      // Number of albums in the collection
+    private Albums[] albums; //Albums array
+    private int albumCount;
 
-    // Constructor
+    //Constructor
     public AlbumCollection(int maxAlbums) {
-        this.albums = new Albums[maxAlbums]; // Initialize array with a fixed size
-        this.albumCount = 0;                // Start with no albums
+        this.albums = new Albums[maxAlbums]; //Initialize array with a fixed size
+        this.albumCount = 0;
     }
 
-    // Add an album to the collection
+    //Add album to collection
     public boolean addAlbum(Albums album) {
         if (albumCount < albums.length) {
             albums[albumCount] = album;
             albumCount++;
-            return true; // Album added successfully
+            return true; //Album added
         } else {
             System.out.println("Album collection is full. Cannot add more albums.");
-            return false; // Collection is full
+            return false; //Album not added
         }
     }
 
-    // Get the total number of albums
+    //getters
     public int getAlbumCount() {
         return albumCount;
     }
 
-    // Get all albums
     public Albums[] getAlbums() {
         return albums;
     }
 
-    // Display all albums
+    // Display albums
     public void displayAlbums() {
         if (albumCount == 0) {
             System.out.println("No albums in the collection.");
@@ -38,18 +37,19 @@ public class AlbumCollection {
         }
 
         for (int i = 0; i < albumCount; i++) {
-            System.out.println(albums[i]); // Calls the toString() method of Album
+            System.out.println(albums[i]); //Calls the toString() method of Album
         }
     }
 
-    // Display albums sorted by artist and year
+    //Sort by artist and year
     public void displaySortedAlbums() {
         if (albumCount == 0) {
             System.out.println("No albums in the collection to sort.");
             return;
         }
 
-        // Bubble sort by artist name and year
+        //Bubble sort by artist name and year
+        ////https://stackoverflow.com/questions/33240968/java-bubble-sort
         for (int i = 0; i < albumCount - 1; i++) {
             for (int j = 0; j < albumCount - i - 1; j++) {
                 // Compare by artist, then by year if artist names are equal
@@ -64,7 +64,7 @@ public class AlbumCollection {
             }
         }
 
-        // Display sorted albums
+        
         displayAlbums();
     }
 }

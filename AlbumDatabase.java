@@ -1,3 +1,6 @@
+//Contain main function
+//Manage result and data from other classes
+
 import java.io.File;
 import java.io.FileNotFoundException; //FileNotFoundException, how and when to use. Try and Catch handling. https://stackoverflow.com/questions/28553991/compiling-java-program-filenotfoundexception
 import java.util.Scanner;
@@ -11,9 +14,9 @@ public class AlbumDatabase {
     }
 
     private void readAlbumsFromFile(String filename) {
-        Scanner fileScanner = null; //Declare the scanner outside the try block
+        Scanner fileScanner = null; //Declare scanner
         try {
-            fileScanner = new Scanner(new File(filename)); //Initialise the scanner
+            fileScanner = new Scanner(new File(filename)); //Initialise scanner
             Albums currentAlbum = null;
     
             while (fileScanner.hasNextLine()) {
@@ -34,7 +37,7 @@ public class AlbumDatabase {
                     String title = titleAndYear[0].trim();
                     int year = Integer.parseInt(titleAndYear[1].replace(")", "").trim());
     
-                    currentAlbum = new Albums(artist, title, year, 50); //Assume max 50 tracks per album
+                    currentAlbum = new Albums(artist, title, year, 50); //Max 50 tracks per album
                 } else if (currentAlbum != null) {
                     //Split and add a track to the current album
                     try {
@@ -46,7 +49,7 @@ public class AlbumDatabase {
                 }
             }
     
-            // Add the last album
+            
             if (currentAlbum != null) {
                 collection.addAlbum(currentAlbum);
             }
