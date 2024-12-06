@@ -30,10 +30,10 @@ public class Duration {
     // Static method to split a Duration from a string
     public static Duration fromString(String durationString) {
         String[] parts = durationString.split(":"); // Split into hours, minutes, and seconds
-        int h = Integer.parseInt(parts[0]);
-        int m = Integer.parseInt(parts[1]);
-        int s = Integer.parseInt(parts[2]);
-        return new Duration(h, m, s); // Create and return a Duration object, h m and s to represent the time values
+        int hour = Integer.parseInt(parts[0]);
+        int minute = Integer.parseInt(parts[1]);
+        int second = Integer.parseInt(parts[2]);
+        return new Duration(hour, minute, second); //return a Duration object with its hours, minutes, seconds.
     }
 
     // Get seconds
@@ -112,6 +112,5 @@ public class Duration {
         // Display total seconds of a duration
         System.out.println("Total seconds of Duration 1: " + duration1.toSeconds());
     }
-    */
+     */
 }
-
