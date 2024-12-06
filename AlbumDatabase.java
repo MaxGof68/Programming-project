@@ -1,5 +1,5 @@
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileNotFoundException; //FileNotFoundException, how and when to use. Try and Catch handling. https://stackoverflow.com/questions/28553991/compiling-java-program-filenotfoundexception
 import java.util.Scanner;
 
 public class AlbumDatabase {
@@ -11,19 +11,19 @@ public class AlbumDatabase {
     }
 
     private void readAlbumsFromFile(String filename) {
-        Scanner fileScanner = null; // Declare the scanner outside the try block
+        Scanner fileScanner = null; //Declare the scanner outside the try block
         try {
-            fileScanner = new Scanner(new File(filename)); // Initialize the scanner
+            fileScanner = new Scanner(new File(filename)); //Initialise the scanner
             Albums currentAlbum = null;
     
             while (fileScanner.hasNextLine()) {
                 String line = fileScanner.nextLine().trim();
     
                 if (line.isEmpty()) {
-                    continue; // Skip empty lines
+                    continue; //Skip empty lines
                 }
     
-                if (line.matches(".+ : .+ \\(\\d{4}\\)")) { // Match album details format
+                if (line.matches(".+ : .+ \\(\\d{4}\\)")) { //Match album details format
                     if (currentAlbum != null) {
                         collection.addAlbum(currentAlbum);
                     }
@@ -34,9 +34,9 @@ public class AlbumDatabase {
                     String title = titleAndYear[0].trim();
                     int year = Integer.parseInt(titleAndYear[1].replace(")", "").trim());
     
-                    currentAlbum = new Albums(artist, title, year, 50); // Assume max 50 tracks per album
+                    currentAlbum = new Albums(artist, title, year, 50); //Assume max 50 tracks per album
                 } else if (currentAlbum != null) {
-                    // Parse and add a track to the current album
+                    //Split and add a track to the current album
                     try {
                         Track track = Track.fromString(line);
                         currentAlbum.addTrack(track);
@@ -50,7 +50,7 @@ public class AlbumDatabase {
             if (currentAlbum != null) {
                 collection.addAlbum(currentAlbum);
             }
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) { //https://stackoverflow.com/questions/28553991/compiling-java-program-filenotfoundexception
             System.out.println("File not found: " + filename);
         } finally {
             if (fileScanner != null) {
@@ -73,7 +73,7 @@ public class AlbumDatabase {
         System.out.println("\nTotal Playtime of Kraftwerk Albums: " + totalPlaytime);
     }
     
-    private void displayAlbumWithShortestTitle() {
+    private void displayShortestTitle() {
         Albums shortestTitleAlbum = null;
     
         for (int i = 0; i < collection.getAlbumCount(); i++) {
@@ -108,26 +108,21 @@ public class AlbumDatabase {
         }
     }
     
-    
-
-    public void run(String filename) {
-        readAlbumsFromFile(filename);
-        collection.displaySortedAlbums();
-
-        // Step 3: Display total playtime of Kraftwerk albums
-        displayTotalPlaytimeForKraftwerk();
-    
-        // Step 4: Display the album with the shortest title
-        displayAlbumWithShortestTitle();
-    
-        // Step 5: Display the longest track in the collection
-        displayLongestTrack();
-    }
-
     public static void main(String[] args) {
         AlbumDatabase database = new AlbumDatabase(50);
         database.run("albums.txt");
     }
+
+
+    public void run(String filename) {
+        readAlbumsFromFile(filename);
+        collection.displaySortedAlbums();
+        displayTotalPlaytimeForKraftwerk();
+        displayShortestTitle();
+        displayLongestTrack();
+    }
+
+    
 
     
 }
